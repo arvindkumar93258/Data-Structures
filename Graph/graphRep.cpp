@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+const int N = 1e3+10;
+
+//either graph has weight or not, it will be correct
+//if graph has weight it will be stored in matrix instead of storing 1
+int graph1[N][N];
+
+//if graph has no weight
+//vector<int> graph2[N];
+
+//if graph has weight then 
+vector<pair<int, int>> graph2[N];
+
+int main()
+{
+    int n, m;
+    cin>>n>>m;
+    for(int i=0; i<m; i++)
+    {
+        int v1, v2;
+        int weight;
+        cin>>v1>>v2;
+        
+        //if graph has no weight
+        //graph1[v1-1][v2-1]=1;
+        //graph1[v2-1][v1-1]=1;
+
+        //if graph has weight
+        graph1[v1-1][v2-1] = weight;
+        graph1[v2-1][v1-1] = weight;
+
+        //if graph has no weight
+        //graph2[v1].push_back(v2);
+        //graph2[v2].push_back(v1);
+
+        //if graph has weight then
+        graph2[v1].push_back({v2, weight});
+        graph2[v2].push_back({v1, weight});
+    }
+
+    cout<<"Graph with adjacancy matrix is: "<<endl;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cout<<graph1[i][j];
+        }
+        cout<<"\n";
+    }
+
+    //printing the graph 2
+    cout<<"Graph with adjacancy list is: "<<endl;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cout<<graph1[i][j];
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
