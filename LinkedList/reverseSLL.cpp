@@ -22,6 +22,7 @@ Node* push(int x, Node* head)
 }
 void printList(Node* h)
 {
+    cout<<"\n Linked list is ";
     Node* p = h;
     while(p)
     {
@@ -30,7 +31,8 @@ void printList(Node* h)
     }
 }
 
-Node* reverse(Node* h)
+//reversing the linked list in connection ==>iterative approach
+Node* reverseSLLIterative(Node* h)
 {
     if(h==NULL || h->next==NULL)
     {
@@ -50,17 +52,66 @@ Node* reverse(Node* h)
     return cur; 
 }
 
+void reverseSLLRecursively(Node* prev, Node* cur)
+{
+    if(cur!=NULL)
+    {
+        reverseSLLRecursively(cur, cur->next);
+        cur->next = prev;
+    }
+    else
+    {
+        head = prev;
+    }
+}
+
+//printing the linked list in reverse manner iterative approach, complexity==> space=O(n) and time = O(2n)
+void printReverse(Node* h)
+{
+    vector<int> arr;
+    Node* ptr = h;
+    while(h)
+    {
+        arr.push_back(ptr->data);
+        ptr = ptr->next;
+    }
+    cout<<"\nReversed linked list is ";
+    for(int i=arr.size()-1; i>=0; i--)
+    {
+        cout<<" "<<arr[i];
+    }
+
+}
+
+//printing the linked list in the reverse manner, recursive approach, complexity==> time = O(n) ans spcae = O(n)
+void printReverseRecursively(Node* g)
+{
+    if(g!=NULL)
+    {
+        printReverseRecursively(g->next);
+        cout<<" "<<g->data;
+    }
+}
+
+
+Node* head = new Node(3);
 int main()
 {   
-    Node* head = new Node(3);
 
     head = push(2, head);
     head = push(4, head);
     Node* ptr= head;
     printList(ptr);
-    head = reverse(head);
-    cout<<" LL after reverse";
+    // cout<<"\nReversed way LL is ";
+    // printReverseRecursively(head);
+
+    cout<<"\nNow reversing the linked list ";
+    reverseSLLRecursively(NULL, head);
     printList(head);
+
+   // head = reverseSLL(head);
+    //cout<<" LL after reverse";
+    //printList(head);
 
     return 0;
 }
