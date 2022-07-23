@@ -14,9 +14,10 @@ struct Node
     }
 };
 struct Node* top = NULL;
+int size=0;
 
 
-struct Node* push(int x)
+struct Node* push(int x) //time complexity = O(1)
 {
     struct Node* temp = new Node(x);
     if(temp==NULL)
@@ -26,11 +27,12 @@ struct Node* push(int x)
     }
     temp->next = top;
     top = temp;
-    cout<<" Pushed "<<x;
+    cout<<"Pushed "<<x<<endl;
+    size++;
     return top;
 }
 
-void pop()
+void pop() //time complexity = O(1)
 {
     if(top==NULL)
     {
@@ -40,7 +42,8 @@ void pop()
     struct Node* temp = top;
     top=top->next;
     free(temp);
-    cout<<" popped "<<t;
+    size--;
+    cout<<"Popped "<<t<<endl;
 }
 
 int topElement()
@@ -52,26 +55,40 @@ int topElement()
     return top->data;
 }
 
-void printStack()
+void printStack() //time complexity = O(n)
 {
     struct Node* ptr = top;
+    cout<<"\nStack : ";
     while(ptr)
     {
         cout<<" "<<ptr->data;
         ptr= ptr->next;
     }
+    cout<<endl;
 }
 
 int main()
 {
+    printStack();
+    cout<<"\nSize of stack is : "<<size<<endl;
     top = push(1);
+    cout<<"\nSize of stack is : "<<size<<endl;
+    printStack();
     top = push(12);
+    cout<<"\nSize of stack is : "<<size<<endl;
+    printStack();
     top = push(100);
+    printStack();
     top = push(200);
+    cout<<"\nSize of stack is : "<<size<<endl;
+    printStack();
    pop();
+   printStack();
    pop();
+    cout<<"\nSize of stack is : "<<size<<endl;
     
     printStack();
+    cout<<"\nSize of stack is : "<<size<<endl;
 
     return 0;
 }

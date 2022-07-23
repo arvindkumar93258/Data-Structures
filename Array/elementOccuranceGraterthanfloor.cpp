@@ -21,6 +21,7 @@ void occurance(vector<int>& A)
         }
         if(count>limit)
         {
+
             cout<<"result is : "<<A[i]<<endl;
             //break;
         }
