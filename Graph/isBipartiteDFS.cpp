@@ -48,6 +48,7 @@ bool isBipartite(int v, vector<int> adj[])
 int main()
 {
     int T;
+    
     cin>>T;
     while(T)
     {
