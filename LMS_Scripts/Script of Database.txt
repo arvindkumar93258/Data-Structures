@@ -1,0 +1,78 @@
+select * from staff
+
+
+insert into [dbo].[Staff] values('arvind', 'admin1', 'admin123', 'aksahub088@gmail.com', 9325860577)
+
+create table Book
+(
+	BookCode int not null primary key,
+	BookName varchar(30) not null,
+	Author varchar(20),
+	Issuable bit not null default(0),
+	Isissued bit not null default(0)
+)
+
+
+select * from Book
+
+create table MemberType
+(
+	MemberTypeID int not null primary key,
+	MemberType varchar(20) not null,
+	BooksAllowed int not null,
+	DaysAllowed int not null
+)
+
+insert into MemberType values(1001, 'employee', 25, 90)
+insert into MemberType values(1002, 'student', 3, 25)
+
+
+create table IssueBook
+(
+	
+)
+
+create table Member
+(
+	MemberCode int not null primary key identity(1,2),
+	MemberName varchar(30) not null,
+	MemberTypeID int not null,
+	NoOfBookIssued int not null default(0),
+	foreign key (MemberTypeID) References MemberType(MemberTypeID)
+)
+select * from Member
+
+create table IssueBook
+(
+	issueCode int not null,
+	MemberCode int not null,
+	BookCode int not null,
+	IssueDate Date not null,
+	DueDate date ,
+	ActualReturnDate date,
+	primary key (issueCode),
+	foreign key (MemberCode) references Member(MemberCode),
+	foreign key (BookCode) references Book(BookCode)
+)
+
+select * from IssueBook
+
+
+
+insert into member values('student1', 1001, 0)
+insert into member values('student2', 1001, 0)
+insert into member values('student3', 1001, 0)
+insert into member values('student4', 1001, 0)
+
+
+insert into book values(10000, 'PHP', 'xyz', 1, 0)
+insert into book values(10001, 'C++', 'abc', 1, 0)
+insert into book values(10002, 'Java', 'mnk', 1, 0)
+insert into book values(10003, 'c#', 'ms', 1, 0)
+insert into book values(10004, 'OS', 'Richard', 1, 0)
+insert into book values(10005, 'Ds', 'Riche', 1, 0)
+
+
+
+
+
