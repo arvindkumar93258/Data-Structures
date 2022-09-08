@@ -1,0 +1,22 @@
+GET http://localhost:3000/get-users
+
+
+###
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "aksahub088@gmail.com",
+    "password": "Password@123"
+}
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "aksahub088@gmail.com",
+    "password": "Password@123"
+}
