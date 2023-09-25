@@ -123,12 +123,10 @@ public:
     }
     void print()
     {
-        cout << "\n Printing list \n"
-             << head;
         Node<T> *ptr = head;
         while (ptr)
         {
-            cout << " " << ptr->data;
+            cout << " " << ptr->data << "->";
             ptr = ptr->next;
         }
         return;
@@ -141,6 +139,15 @@ int main()
     li.push_back(1);
     li.push_back(3);
     li.print();
+
+    list<char> li1;
+    li1.push_back(1);
+    li1.push_back(2);
+    li1.push_back(3);
+    li1.push_back(4);
+    li1.push_back(97);
+    li1.push_back(65);
+    li1.print();
 
     return 0;
 }
