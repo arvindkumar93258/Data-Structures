@@ -1,132 +1,3 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// struct node
-// {
-//     int data;
-//     struct node *next;
-
-//     node(int x)
-//     {
-//         data = x;
-//         next = NULL;
-//     }
-// };
-
-// /* Function to print linked list */
-// void printList(struct node *node)
-// {
-//     while (node != NULL)
-//     {
-//         printf("%d ", node->data);
-//         node = node->next;
-//     }
-//     printf("\n");
-// }
-
-// // } Driver Code Ends
-// /*
-//   Reverse a linked list
-//   The input list will have at least one element
-//   Return the node which points to the head of the new LinkedList
-//   Node is defined as
-//     struct node
-//     {
-//         int data;
-//         struct node* next;
-
-//         node(int x){
-//             data = x;
-//             next = NULL;
-//         }
-
-//     }*head;
-// */
-
-// class Solution
-// {
-// public:
-//     struct node *reverse(struct node *head, int k)
-//     {
-//         // Complete this method
-//         node *iterator1 = head;
-//         node *iterator2 = head;
-
-//         stack<int> st;
-
-//         while (iterator1 != NULL)
-//         {
-
-//             int counter = k;
-
-//             node *ptr = iterator2;
-//             while (counter != 0 && ptr != NULL)
-//             {
-//                 st.push(ptr->data);
-//                 counter--;
-//                 ptr = ptr->next;
-//             }
-//             iterator1 = ptr;
-//             ptr = iterator2;
-//             while (!st.empty())
-//             {
-//                 ptr->data = st.top();
-//                 st.pop();
-//             }
-//             iterator2 = iterator1;
-//         }
-//         struct node *mtr = head;
-//         while (mtr)
-//         {
-//             cout << mtr->data << " ";
-//             mtr = mtr->next;
-//         }
-//         return head;
-//     }
-// };
-
-// //{ Driver Code Starts.
-
-// /* Drier program to test above function*/
-// int main(void)
-// {
-//     int t;
-//     cin >> t;
-
-//     while (t--)
-//     {
-//         struct node *head = NULL;
-//         struct node *temp = NULL;
-//         int n;
-//         cin >> n;
-
-//         for (int i = 0; i < n; i++)
-//         {
-//             int value;
-//             cin >> value;
-//             if (i == 0)
-//             {
-//                 head = new node(value);
-//                 temp = head;
-//             }
-//             else
-//             {
-//                 temp->next = new node(value);
-//                 temp = temp->next;
-//             }
-//         }
-
-//         int k;
-//         cin >> k;
-
-//         Solution ob;
-//         head = ob.reverse(head, k);
-//         printList(head);
-//     }
-
-//     return (0);
-// }
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -262,13 +133,13 @@ public:
         }
         head = prev;
     }
-
-    void reverseKGroup(int k)
-    {
-        
-    }
+    void reverseKGroup(int k);
 };
 
+void List::reverseKGroup(int k)
+{
+    return;
+}
 int main()
 {
 
