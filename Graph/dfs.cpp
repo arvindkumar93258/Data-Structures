@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+#include <list>
+#include <vector>
+
 using namespace std;
 
 const int N = 1e5 + 10;
@@ -11,7 +15,7 @@ void dfs(int startV)
     {
         return;
     }
-    cout<<" "<<startV;
+    cout << " " << startV;
     vis[startV] = true;
     for (int i : g[startV])
     {
@@ -30,12 +34,12 @@ int main()
     }
 
     int numOfVertex, numOfEdge;
-    cin>>numOfVertex>>numOfEdge;
+    cin >> numOfVertex >> numOfEdge;
 
-    for(int i=0; i<numOfEdge; i++)
+    for (int i = 0; i < numOfEdge; i++)
     {
-        int u,v;
-        cin>>u>>v;
+        int u, v;
+        cin >> u >> v;
         g[u].push_back(v);
         g[v].push_back(u);
     }
